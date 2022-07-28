@@ -37,8 +37,9 @@ func main() {
 			fmt.Println("zamalo")
 		} else if shoot > target {
 			fmt.Println("Za duzo")
-		} else if shoot == target {
+		} else {
 			fmt.Println("Huirra")
+			break
 		}
 		fmt.Println("Left " + fmt.Sprint(shoots))
 
