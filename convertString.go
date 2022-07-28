@@ -1,11 +1,32 @@
 package main
-import "fmt"
 
-func main()  {
-	var int int = 12
-	var append string = "minutes of bonus footage"
-	
-	fmt.Println(int)
-	fmt.Print(append)
-	
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+	"strconv"
+	"strings"
+)
+
+func main() {
+
+	var status string
+
+	reader := bufio.NewReader(os.Stdin)
+	inputFromKeyboard, err := reader.ReadString('\n')
+	inputFromKeyboard = strings.TrimSpace(inputFromKeyboard)
+
+	grade, err := strconv.ParseFloat(inputFromKeyboard, 64)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if grade >= 60 {
+		status = "passing"
+	} else {
+		status = "fail"
+	}
+
+	fmt.Println(status)
 }
